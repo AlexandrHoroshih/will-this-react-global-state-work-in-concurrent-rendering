@@ -1,5 +1,5 @@
-import { createStore, createEvent } from 'effector';
-import { useStore } from 'effector-react';
+import { createStore, createEvent } from "effector";
+import { useStore } from "./alt-bindings";
 
 import {
   reducer,
@@ -8,11 +8,10 @@ import {
   incrementAction,
   doubleAction,
   createApp,
-} from '../common';
+} from "../common";
 
 const dispatch = createEvent();
-const $store = createStore(initialState)
-  .on(dispatch, reducer);
+const $store = createStore(initialState).on(dispatch, reducer);
 
 const $count = $store.map((value) => selectCount(value));
 
